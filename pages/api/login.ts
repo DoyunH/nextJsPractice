@@ -9,7 +9,7 @@ export default async function login(req: NextApiRequest, res: NextApiResponse) {
     const user = { email: "doyun@gmail.com", password: "1234" };
 
     if (!user || user.password !== password) {
-      res.status(401).json({ message: "Invalid credentials" });
+      res.status(401).json({ message: "Check your email and password!" });
     } else {
       // Set a cookie or a session to keep the user logged in
       res.status(200).json({ message: "Logged in successfully" });

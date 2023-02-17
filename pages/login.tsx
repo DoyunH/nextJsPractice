@@ -23,10 +23,13 @@ export default function LoginPage() {
   };
 
   return (
-    <div>
-      <h1>Login Page</h1>
+    <div className="flex flex-col h-screen justify-center">
       <LoginForm onSubmit={handleLogin} />
-      {message && <p>{message}</p>}
+      <div className="relative">
+        <p className="text-center ease-in duration-300 text-red-400 absolute top-0 left-1/2 -translate-x-1/2">
+          {message}
+        </p>
+      </div>
     </div>
   );
 }

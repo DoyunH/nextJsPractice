@@ -39,7 +39,6 @@ export default function LoginForm({ onSubmit }: LoginFormProps) {
       >
         Login
       </button>
-      {message && <p>{message}</p>}
     </form>
   );
 }
