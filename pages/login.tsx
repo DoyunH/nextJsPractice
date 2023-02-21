@@ -1,11 +1,17 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
 import LoginForm from "../components/Login/LoginForm";
+import { GoogleLogin } from "react-google-login";
+import { googleClientId } from "@/lib/constants";
 
 export default function LoginPage() {
   const router = useRouter();
   const [message, setMessage] = useState("");
   const [isShaking, setIsShaking] = useState(false);
+
+  const responseGoogle = (response: any) => {
+    console.log(response);
+  };
 
   const handleLogin = async (email: string, password: string) => {
     const res = await fetch("/api/login", {
@@ -39,6 +45,13 @@ export default function LoginPage() {
           {message}
         </p>
       </div>
+      <GoogleLogin
+        clientId={googleClientId}
+        buttonText="Login with Google"
+        onSuccess={responseGoogle}
+        onFailure={responseGoogle}
+        cookiePolicy={"single_host_origin"}
+      />
     </div>
   );
 }
