@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
-import { useState } from "react";
+import Head from "next/head";
+import { useEffect, useState } from "react";
 import LoginForm from "../components/Login/LoginForm";
-import { GoogleLogin } from "react-google-login";
 import { googleClientId } from "@/lib/constants";
 
 export default function LoginPage() {
@@ -9,9 +9,15 @@ export default function LoginPage() {
   const [message, setMessage] = useState("");
   const [isShaking, setIsShaking] = useState(false);
 
-  const responseGoogle = (response: any) => {
-    console.log(response);
-  };
+  useEffect(() => {
+    const initGoogleSignIn = () => {
+      window.gapi.auth2.init({
+        client_id: googleClientId,
+      });
+    };
+
+    window.gapi.load("auth2", initGoogleSignIn);
+  }, []);
 
   const handleLogin = async (email: string, password: string) => {
     const res = await fetch("/api/login", {
@@ -33,25 +39,39 @@ export default function LoginPage() {
     }
   };
 
+  const handleGoogleLogin = () => {
+    window.gapi.auth2
+      .getAuthInstance()
+      .signIn()
+      .then(() => {
+        console.log("User logged in");
+      });
+  };
+
   return (
-    <div
-      className={`flex flex-col h-screen justify-center transition-all ${
-        isShaking ? "animate-shake-fast" : ""
-      }`}
-    >
-      <LoginForm onSubmit={handleLogin} />
-      <div className="relative">
-        <p className="text-center ease-in duration-300 text-red-400 absolute top-0 left-1/2 -translate-x-1/2">
-          {message}
-        </p>
+    <>
+      <Head>
+        <script
+          src="https://apis.google.com/js/platform.js"
+          async
+          defer
+        ></script>
+      </Head>
+      <div
+        className={`flex flex-col h-screen justify-center transition-all ${
+          isShaking ? "animate-shake-fast" : ""
+        }`}
+      >
+        <LoginForm onSubmit={handleLogin} />
+        <div className="relative">
+          <p className="text-center ease-in duration-300 text-red-400 absolute top-0 left-1/2 -translate-x-1/2">
+            {message}
+          </p>
+        </div>
+        <div>
+          <button onClick={handleGoogleLogin}>Sign in with Google</button>
+        </div>
       </div>
-      <GoogleLogin
-        clientId={googleClientId}
-        buttonText="Login with Google"
-        onSuccess={responseGoogle}
-        onFailure={responseGoogle}
-        cookiePolicy={"single_host_origin"}
-      />
-    </div>
+    </>
   );
 }
