@@ -10,6 +10,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        customYellow: "#F9C64D",
+        customBlue: "#4285f4",
+      },
       animation: {
         "shake-fast": "shake 0.3s cubic-bezier(.36,.07,.19,.97) both",
       },

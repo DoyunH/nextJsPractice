@@ -34,7 +34,7 @@ export default function LoginForm({ onSubmit }: LoginFormProps) {
       />
       <button
         type="submit"
-        className="mb-2 p-2 bg-amber-400 text-white rounded-md"
+        className="mb-2 p-2 bg-customYellow text-white rounded-md"
       >
         Login
       </button>

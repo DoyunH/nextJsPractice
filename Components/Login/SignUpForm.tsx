@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import firebase from "firebase/app";
-import "firebase/auth";
 
 const SignupForm = () => {
   const [firstName, setFirstName] = useState("");
@@ -20,9 +18,9 @@ const SignupForm = () => {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen flex flex-col justify-center sm:py-12 transition-all ease-in-out">
+    <div className="bg-customYellow min-h-screen flex flex-col justify-center sm:py-12 transition-all ease-in-out">
       <div className="relative py-3 sm:max-w-xl sm:mx-auto">
-        <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
+        <div className="absolute inset-0 bg-customBlue shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
         <div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
           <h1 className="text-3xl font-bold mb-6">Sign up for an account</h1>
           <form onSubmit={handleSignUp}>
@@ -113,7 +111,7 @@ const SignupForm = () => {
             </div>
             <button
               type="submit"
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold mt-14 py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-customBlue hover:bg-blue-700 text-white font-bold mt-14 py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
               Sign Up
             </button>
