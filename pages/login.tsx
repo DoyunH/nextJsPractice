@@ -68,8 +68,20 @@ export default function LoginPage() {
             {message}
           </p>
         </div>
-        <div>
+        {/* <div>
           <button onClick={handleGoogleLogin}>Sign in with Google</button>
+        </div> */}
+        <div className="mt-10">
+          {/* sign-up link */}
+          <p className="text-center">
+            Don&apos;t have an account?{" "}
+            <a
+              href="/signup"
+              className="text-blue-500 hover:text-blue-700 transition-colors duration-300 ease-in-out"
+            >
+              Sign up
+            </a>
+          </p>
         </div>
       </div>
     </>
