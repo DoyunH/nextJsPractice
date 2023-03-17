@@ -107,5 +107,18 @@ a {
 } */
 
 @tailwind base;
+.flex-centered-container {
+  @apply flex items-center justify-center;
+}
 @tailwind components;
+.btn {
+  @apply bg-primary-yellow text-white font-bold py-2 px-4 rounded transition-all duration-300 ease-in-out;
+}
+.btn:hover {
+  @apply bg-primary-green;
+}
+.title {
+  @apply text-3xl font-bold;
+}
+
 @tailwind utilities;

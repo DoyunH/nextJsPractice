@@ -10,6 +10,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        "primary-yellow": "#f8c44cff",
+        "primary-blue": "#428fff",
+        "primary-red": "#ff5145",
+        "primary-green": "#3ebd5c",
+      },
       animation: {
         "shake-fast": "shake 0.3s cubic-bezier(.36,.07,.19,.97) both",
       },
