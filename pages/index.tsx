@@ -14,7 +14,20 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo_big.png" />
       </Head>
-      Main Page
+      <div className="flex-centered-container flex-col h-screen">
+        <div>
+          <Image
+            src="/logo_big.png"
+            alt="DevStory Logo"
+            width={200}
+            height={200}
+          />
+        </div>
+        <div className="title mb-10">
+          <h1>DevStory</h1>
+        </div>
+        <button className="btn">Projects</button>
+      </div>
     </>
   );
 }
