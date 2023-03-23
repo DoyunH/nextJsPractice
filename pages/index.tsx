@@ -25,11 +25,11 @@ export default function Home() {
           />
         </div>
         <div className="title mb-10">
-          <h1>DevStory</h1>
+          <h1>Aprender español con Doyun</h1>
         </div>
         <Link href="/projects">
           <button className="btn bg-primary-yellow hover:bg-yellow-600">
-            Projects
+            ¡Empezamos!
           </button>
         </Link>
       </div>
