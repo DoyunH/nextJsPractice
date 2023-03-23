@@ -1,49 +1,25 @@
-import React, { useEffect, useRef } from "react";
+import Tooltip from "@/components/Project/Tooltip";
+import React from "react";
 
 const Project = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const tooltipRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    const tooltip = tooltipRef.current;
-
-    const showTooltip = () => {
-      if (tooltip) {
-        tooltip.style.display = "block";
-      }
-    };
-
-    const hideTooltip = () => {
-      if (tooltip) {
-        tooltip.style.display = "none";
-      }
-    };
-
-    if (container && tooltip) {
-      container.addEventListener("mouseenter", showTooltip);
-      container.addEventListener("mouseleave", hideTooltip);
-    }
-
-    return () => {
-      if (container) {
-        container.removeEventListener("mouseenter", showTooltip);
-        container.removeEventListener("mouseleave", hideTooltip);
-      }
-    };
-  }, []);
-
   return (
-    <div ref={containerRef} className="relative">
-      <div className="hover:bg-gray-100 p-2 rounded-md">
-        <span className="cursor-pointer">A: &quot;Hi, how are you?&quot;</span>
-        <div
-          ref={tooltipRef}
-          className="hidden absolute left-0 mt-1 w-auto p-2 text-white text-xs bg-black rounded-md opacity-80"
-        >
-          A: &quot;Hola, ¿cómo estás?&quot;
-        </div>
-      </div>
+    <div className="p-20">
+      <Tooltip
+        englishSentence="A: Hi, how are you?"
+        spanishSentence="Hola, ¿cómo estás?"
+      />
+      <Tooltip
+        englishSentence="B: I'm good, thank you. And you?"
+        spanishSentence="Estoy bien, gracias. ¿Y tú?"
+      />
+      <Tooltip
+        englishSentence="A: I'm doing well, too. It's nice to meet you. My name is Jina."
+        spanishSentence="También estoy bien. Mucho gusto conocerte. Me llamo Jina."
+      />
+      <Tooltip
+        englishSentence="A: Pleased to meet you, Alice. I'm Duru."
+        spanishSentence="Encantado de conocerte, Alice. Soy Duru."
+      />
     </div>
   );
 };
